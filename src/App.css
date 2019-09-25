@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+.search {
+  margin: 1%;
+}
+
+#root {
+  background-color: rgb(139, 139, 139);
+}
+
+.addHeli, .home {
+  float: left;
+}
