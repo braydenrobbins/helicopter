@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Layout } from 'antd';
 import './App.css';
 import "antd/dist/antd.css";
 
@@ -8,6 +9,8 @@ import NavHeader from './NavHeader/navHeader';
 import AddHeli from './AddHeli/addHeli';
 
 function App() {
+  const { Content, Header } = Layout;
+
   const [helicopters] = useState([
     {
       'name': 'Focke-Wulf Fw 61',
@@ -57,11 +60,15 @@ function App() {
   ])
   return (
     <Router>
-      <div className='App'>
-        <NavHeader />
-        <Route path='/' exact render={() => <Helicopter helicopters={helicopters} />} />
-        <Route path='/addHeli' exact component={AddHeli} />
-      </div>
+      <Layout className='App'>
+        <Header className='header'>
+          <NavHeader />
+        </Header>
+        <Content className='content'>
+          <Route path='/' exact render={() => <Helicopter helicopters={helicopters} />} />
+          <Route path='/addHeli' exact component={AddHeli} />
+        </Content>
+      </Layout>
     </Router>
   );
 }

@@ -7,7 +7,7 @@ const HelicopterCard = (props) => {
   return (
     <Card
       hoverable
-      style={{ width: 240 }}
+      className='helicopter-card'
       cover={<img alt="example" src={props.helicopter.src} className='helicopter-Img' />}
     >
       <Meta title={props.helicopter.name} description={props.helicopter.date} />

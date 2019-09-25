@@ -9,7 +9,7 @@ const { Search } = Input;
 const Helicopter = (props) => {
   return (
     <Layout>
-      <Content>
+      <Content className='content'>
         <Search placeholder="search for helicopters" onSearch={value => console.log(value)} className='search' enterButton />
         <List
           grid={{
