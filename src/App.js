@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Layout } from 'antd';
-import './App.css';
+import { Layout, notification } from 'antd';
+
 import "antd/dist/antd.css";
+import './App.css';
 
 import Helicopter from './Helicopter/helicopters';
 import NavHeader from './NavHeader/navHeader';
@@ -77,16 +78,23 @@ function App() {
       'src': 'https://hips.hearstapps.com/pop.h-cdn.co/assets/17/09/980x522/gallery-1488388001-bell-47-credit-keystonegetty.png?resize=980:*'
     },
   ])
+
+  function handleError(err) {
+    notification['error']({
+      message: 'Oh No! Something went wrong!',
+      description: `Sorry about that! It will be back up and running in a jiffy! We were unable to add your class to the list.`
+    });
+  }
+
   return (
     <Router>
-      <Layout className='App'>
+      <Layout className='layout'>
         <Header className='header'>
           <NavHeader />
         </Header>
         <Content className='content'>
-          <Route path='/' exact render={() => <Helicopter helicopters={helicopters} />} />
-          <Route path='/addHeli' exact component={AddHeli} />
-          {/* <Route path='/null/' exact render={() => <HeliActions helicopters={helicopters} />} /> */}
+          <Route path='/' exact render={() => <Helicopter helicopters={helicopters} handleError={handleError} />} />
+          <Route path='/addHeli' exact render={() => <AddHeli handleError={handleError} />} />
         </Content>
       </Layout>
     </Router>

@@ -10,7 +10,8 @@ const Helicopter = (props) => {
   return (
     <Layout>
       <Content className='content'>
-        <Search placeholder="search for helicopters" onSearch={value => console.log(value)} className='search' enterButton />
+        <h1 className='big-title'>Helicopters</h1>
+        <Search placeholder="Search for helicopters" onSearch={value => console.log(value)} className='search' enterButton />
         <List
           grid={{
             gutter: 5,

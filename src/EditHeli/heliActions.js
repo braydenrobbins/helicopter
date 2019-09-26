@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Input, Button, Form, notification } from 'antd';
 import Config from '../config/app.local.config';
+import ActionButton from 'antd/lib/modal/ActionButton';
 
 function EditHeli(props) {
   const [heliName, setHeliName] = useState(props.heli.name);
@@ -72,8 +73,9 @@ function EditHeli(props) {
         <Form.Item label="Name"><Input type="text" placeholder='Name' name="heliName" value={heliName} onChange={(e) => setHeliName(e.target.value)} /></Form.Item>
         <Form.Item label="Date"><Input type="text" placeholder='Year' name="heliDate" value={heliDate} onChange={e => setHeliDate(e.target.value)} /></Form.Item>
         <span>
-          <Button type="primary" htmlType="submit">Submit</Button>
-          <Button type="danger" onClick={deleteHeli}>Delete</Button>
+          <Button onClick={props.close} className='action-button'>Cancel</Button>
+          <Button type="primary" htmlType="submit" className='action-button'>Submit</Button>
+          <Button type="danger" onClick={deleteHeli} className='action-button'>Delete</Button>
         </span>
 
       </Form>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Input, Button, Form } from 'antd';
-//import Config from '../config/app.local.conf.js';
+import Config from '../config/app.local.config';
 
-function AddHeli() {
+function AddHeli(props) {
   const [heliName, setHeliName] = useState();
   const [heliDate, setHeliDate] = useState();
 
@@ -28,24 +28,25 @@ function AddHeli() {
       heliDate: heliDate
     }
 
-    //   fetch(`${Config.websiteServiceUrl}helicopter`, buildConfig({
-    //     method: `POST`,
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(newHeli)
-    // }))
-    //     .then(res => {
-    //         if (!res.ok) {
-    //             throw Error(res.statusText);
-    //         }
-    //         clearFields();
-    //     })
-    //     .catch(err => {
-    //         props.onError(err)
-    //     });
-    // }
+    fetch(`${Config.websiteServiceUrl}helicopter`, {
+      method: `POST`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newHeli)
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        clearFields();
+      })
+      .catch(err => {
+        props.handleError(err);
+      });
   }
+
+
 
 
 
@@ -58,7 +59,7 @@ function AddHeli() {
       }}>
         <Form.Item label="Helicopter Name"><Input type="text" placeholder='Name' name="heliName" value={heliName} onChange={(e) => setHeliName(e.target.value)} /></Form.Item>
         <Form.Item label="Helicopter Date"><Input type="text" placeholder='Year' name="heliDate" value={heliDate} onChange={e => setHeliDate(e.target.value)} /></Form.Item>
-        <Button type="primary" htmlType="submit">Submit</Button>
+        <Button type="primary" htmlType="submit" className='addHeliButton'>Submit</Button>
       </Form>
 
     </>
