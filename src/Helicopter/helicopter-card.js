@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Popover, Button } from 'antd';
 
+import HeliActions from '../EditHeli/heliActions';
+
 const { Meta } = Card;
 
 const HelicopterCard = (props) => {
@@ -15,23 +17,16 @@ const HelicopterCard = (props) => {
   }
 
   const popoverButtons = (
-    <>
-      <Button onClick={editHeli} type='primary'>Edit</Button>
-      <Button onClick={deleteHeli} type='danger'>Delete</Button>
-    </>
+    <HeliActions heli={props.helicopter} close={hide} />
   );
 
-  function editHeli() {
-    console.log('edit');
-    hide()
-  }
-
-  function deleteHeli() {
-    console.log('delete');
-    hide();
-  }
   return (
-    <Popover content={popoverButtons} title="Options" trigger="click" visible={visible} >
+    <Popover
+      content={popoverButtons}
+      title="Edit Helicopter"
+      trigger="click"
+      visible={visible}
+    >
       <Card
         hoverable
         className='helicopter-card'
