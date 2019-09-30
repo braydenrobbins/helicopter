@@ -1,17 +1,14 @@
 import React from 'react';
-import { Layout, List, Input } from 'antd';
+import { Layout, List } from 'antd';
 
 import HelicopterCard from './helicopter-card';
 
 const { Content, } = Layout;
-const { Search } = Input;
 
 const Helicopter = (props) => {
   return (
     <Layout>
       <Content className='content'>
-        <h1 className='big-title'>Helicopters</h1>
-        <Search placeholder="Search for helicopters" onSearch={value => console.log(value)} className='search' enterButton />
         <List
           grid={{
             gutter: 5,

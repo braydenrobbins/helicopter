@@ -8,13 +8,12 @@
 }
 
 .content {
-  margin: auto;
-  width: 70%;
+  /* margin: auto; */
+  /* width: 70%; */
   background-color: rgba(216,216,216);
 }
 
 .header {
-  background-color: #002b49;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +22,9 @@
 }
 
 .helicopter-Img {
-  height: calc(80px + 4.5vmin);
-  max-width: calc(100px + 30vmin);
+  /* height: calc(80px + 4.5vmin);
+  max-width: calc(100px + 30vmin); */
+  width: calc(30px + 35vmin);
 }
 
 .action-button {
@@ -44,11 +44,12 @@
   background-color: rgba(216,216,216,.25);
 }
 
-.ant-menu {
+.ant-menu .header {
   background-color: #002b49;
 }
 
-.ant-menu-item-selected {
+
+.ant-menu-item-selected .header {
   font-size: 1.1em;
   text-shadow: 1px 1px darkslategray;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Popover, Button } from 'antd';
+import { Card, Popover } from 'antd';
 
 import HeliActions from '../EditHeli/heliActions';
 
@@ -33,7 +33,7 @@ const HelicopterCard = (props) => {
         cover={<img alt="example" src={props.helicopter.src} className='helicopter-Img' />}
         onClick={showPopover}
       >
-        <Meta title={props.helicopter.name} description={props.helicopter.date} />
+        <Meta title={props.helicopter.model} description={props.helicopter.date} />
       </Card>
     </Popover>
   )
