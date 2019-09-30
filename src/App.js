@@ -5,20 +5,32 @@ import { Layout, notification } from 'antd';
 import "antd/dist/antd.css";
 import './App.css';
 
-import SearchBar from './Search/search';
+import Helicopter from './Helicopter/Helicopter';
 import NavHeader from './NavHeader/navHeader';
-import AddHeli from './AddHeli/addHeli';
-import SideMenu from './SideMenu/sideMenu';
-// import HeliDetailPage from './EditHeli/heliDetailPage'
+import AddHeli from './Helicopter/addHeli';
 
 function App() {
-  const { Content, Header, Sider } = Layout;
+  const { Content, Header } = Layout;
 
   const helicopterHash1 = '7b3a88b8bd33c2405ed870f489d93def';
   const helicopterHash2 = '1cc3e1cc8283f7b9d43b75452a7d08aa';
   const helicopterHash3 = 'b48828b0a86e137da4017bcaedccfc0b';
 
   const [helicopters] = useState([
+    {
+      '_id': helicopterHash1,
+      'type': 'Focke-Wulf',
+      'model': 'Fw 61',
+      'capacity-weight': '28000',
+      'crew-max': '4',
+      'crew-min': '3',
+      'fuselage-length': '98ft 10in',
+      'height': '18ft 11in',
+      'rotor-diameter': '60',
+      'engine-type': '',
+      'max-speed': '170 knots',
+      'src': 'https://hips.hearstapps.com/pop.h-cdn.co/assets/17/09/980x553/gallery-1488384411-screen-shot-2017-03-01-at-110225-am.png?resize=980:*'
+    },
     {
       '_id': helicopterHash1,
       'type': 'Focke-Wulf',
@@ -61,14 +73,10 @@ function App() {
           <NavHeader />
         </Header>
         <Layout>
-          <Sider>
-            <Route path='/' exact render={() => <SideMenu helicopters={helicopters} handleError={handleError} />} />
-          </Sider>
           <Layout>
             <Content className='content'>
-              <Route path='/' exact render={() => <SearchBar helicopters={helicopters} handleError={handleError} />} />
+              <Route path='/' exact render={() => <Helicopter helicopters={helicopters} handleError={handleError} />} />
               <Route path='/addHeli' exact render={() => <AddHeli handleError={handleError} />} />
-              {/* <Route path='/heliDetailPage/:_id' exact render={() => <HeliDetailPage handleError={handleError} />} /> */}
             </Content>
           </Layout>
         </Layout>

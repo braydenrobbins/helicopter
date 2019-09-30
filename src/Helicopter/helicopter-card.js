@@ -6,7 +6,7 @@ const { Meta } = Card;
 
 const HelicopterCard = (props) => {
   return (
-    <Link to='/heliDetailPage/:_id'>
+    <Link to='/heliDetailPage/_id'>
       <Card
         hoverable
         className='helicopter-card'
