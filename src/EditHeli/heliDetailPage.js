@@ -3,7 +3,7 @@ import { Input, Button, Form, notification } from 'antd';
 import Config from '../config/app.local.config';
 
 function EditHeli(props) {
-  const [heliName, setHeliName] = useState(props.heli.name);
+  const [heliName, setHeliName] = useState(props.heli.type);
   const [heliDate, setHeliDate] = useState(props.heli.date);
   const [_id] = useState(props.heli._id);
 

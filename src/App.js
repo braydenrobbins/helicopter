@@ -9,6 +9,7 @@ import SearchBar from './Search/search';
 import NavHeader from './NavHeader/navHeader';
 import AddHeli from './AddHeli/addHeli';
 import SideMenu from './SideMenu/sideMenu';
+// import HeliDetailPage from './EditHeli/heliDetailPage'
 
 function App() {
   const { Content, Header, Sider } = Layout;
@@ -67,6 +68,7 @@ function App() {
             <Content className='content'>
               <Route path='/' exact render={() => <SearchBar helicopters={helicopters} handleError={handleError} />} />
               <Route path='/addHeli' exact render={() => <AddHeli handleError={handleError} />} />
+              {/* <Route path='/heliDetailPage/:_id' exact render={() => <HeliDetailPage handleError={handleError} />} /> */}
             </Content>
           </Layout>
         </Layout>

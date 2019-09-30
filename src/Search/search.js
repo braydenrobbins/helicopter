@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
+import { isEmpty } from 'lodash'
 
 import Helicopter from '../Helicopter/helicopters';
 
 function SearhBar(props) {
   const { Search } = Input;
-  const [filtHeli, setFiltHeli] = useState({});
+  const [filtHeli, setFiltHeli] = useState([]);
 
-  function handleChange(value) {
+  function handleSearch(value) {
     const regex = new RegExp(value, 'i');
-    const searchResults = (props.helicopters.filter(h => h.name.search(regex) === 0))
+    const searchResults = (props.helicopters.filter(h => h.model.search(regex) === 0));
     setFiltHeli(searchResults);
-    console.log(filtHeli);
   }
 
   return (
@@ -19,11 +19,11 @@ function SearhBar(props) {
       <h1 className='big-title'>Helicopters</h1>
       <Search
         placeholder="Search for helicopters"
-        onChange={value => handleChange(value)}
+        onChange={(e) => handleSearch(e.target.value)}
         className='search'
         enterButton
       />
-      <Helicopter {...props} />
+      <Helicopter filtHeli={isEmpty(filtHeli) ? props.helicopters : filtHeli} />
     </>
   )
 }
