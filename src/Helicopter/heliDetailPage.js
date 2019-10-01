@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Input, Button, Form, notification } from 'antd';
 import Config from '../config/app.local.config';
 
-function EditHeli(props) {
-  const [heliName, setHeliName] = useState(props.heli.type);
-  const [heliDate, setHeliDate] = useState(props.heli.date);
-  const [_id] = useState(props.heli._id);
+function HeliDetailPage(props) {
+  console.log(props);
+
+
+  const [heliName, setHeliName] = useState();
+  const [heliDate, setHeliDate] = useState();
+  const [_id] = useState();
 
   const formItemLayout = {
     labelCol: {
@@ -83,4 +86,4 @@ function EditHeli(props) {
   );
 }
 
-export default EditHeli;
+export default HeliDetailPage;

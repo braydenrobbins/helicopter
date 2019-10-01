@@ -8,6 +8,7 @@ import './App.css';
 import Helicopter from './Helicopter/Helicopter';
 import NavHeader from './NavHeader/navHeader';
 import AddHeli from './Helicopter/addHeli';
+import HeliDetailPage from './Helicopter/heliDetailPage';
 
 function App() {
   const { Content, Header } = Layout;
@@ -19,7 +20,7 @@ function App() {
   const [helicopters] = useState([
     {
       '_id': helicopterHash1,
-      'type': 'Focke-Wulf',
+      'type': 'Focke-Wulkf',
       'model': 'Fw 61',
       'capacity-weight': '28000',
       'crew-max': '4',
@@ -77,6 +78,7 @@ function App() {
             <Content className='content'>
               <Route path='/' exact render={() => <Helicopter helicopters={helicopters} handleError={handleError} />} />
               <Route path='/addHeli' exact render={() => <AddHeli handleError={handleError} />} />
+              <Route path={`/heliDetailPage/:id`} exact render={() => <HeliDetailPage />} />
             </Content>
           </Layout>
         </Layout>
