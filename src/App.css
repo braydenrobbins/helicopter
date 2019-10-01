@@ -5,11 +5,15 @@
 
 .addHeli, .home {
   float: left;
+  border-radius: 20px;
+}
+
+.userLogin {
+  float: right;
+  border-radius: 20px;
 }
 
 .content {
-  /* margin: auto; */
-  /* width: 70%; */
   background-color: rgba(216,216,216);
 }
 
@@ -22,13 +26,7 @@
 }
 
 .helicopter-Img {
-  /* height: calc(80px + 4.5vmin);
-  max-width: calc(100px + 30vmin); */
   width: calc(30px + 35vmin);
-}
-
-.action-button {
-  margin: 1vmin;
 }
 
 .addHeliButton {
@@ -56,6 +54,9 @@
 
 .ant-form-item-control {
   margin-right: 25vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 1275px) {

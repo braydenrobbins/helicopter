@@ -10,24 +10,23 @@ function Helicopter(props) {
   const { Search } = Input;
   const [filtHeli, setFiltHeli] = useState([]);
   const [typeSelected, setTypeSelected] = useState('');
-  const [inputValue, setInputValue] = useState('');
 
-  const mapTypes = props.helicopters.map(h => <Menu.Item key={h.type} onClick={() => handleSelected(h.type)}>{h.type}</Menu.Item>);
+  const allTypes = props.helicopters.map(h => h.type);
+  const uniqueTypes = allTypes.filter((r, index) => allTypes.indexOf(r) === index);
+  const makeItems = uniqueTypes.map(t => <Menu.Item key={t} onClick={() => handleSelected(t)}>{t}</Menu.Item>);
 
   function handleSelected(type) {
     setTypeSelected(type);
   };
 
+  useEffect(() => console.log(typeSelected))
+
   function handleSearch(value) {
     const regex = new RegExp(value, 'i');
     const searchResults = (props.helicopters.filter(h => h.model.search(regex) === 0));
-    const filteredResults = isEmpty(typeSelected) ? searchResults : searchResults.filter((h) => h.type === typeSelected);
+    const filteredResults = isEmpty(typeSelected) ? searchResults : searchResults.filter((r) => r.type === typeSelected);
     setFiltHeli(filteredResults);
   }
-
-  useEffect(() => {
-    console.log(filtHeli);
-  });
 
   return (
     <>
@@ -37,14 +36,13 @@ function Helicopter(props) {
             mode="inline"
             className='sider'
           >
-            {mapTypes}
+            {makeItems}
           </Menu>
         </Sider>
         <Layout>
           <Content>
             <h1 className='big-title'>Helicopters</h1>
             <Search
-              value={inputValue}
               placeholder="Search for helicopters"
               onChange={(e) => handleSearch(e.target.value)}
               className='search'

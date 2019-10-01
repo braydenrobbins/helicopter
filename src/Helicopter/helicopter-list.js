@@ -7,7 +7,7 @@ const Helicopter = (props) => {
   return (
     <List
       grid={{
-        gutter: 5,
+        gutter: 80,
         xs: 1,
         sm: 2,
         md: 3,

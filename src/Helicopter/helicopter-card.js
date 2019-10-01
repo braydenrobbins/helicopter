@@ -15,10 +15,11 @@ const HelicopterCard = (props) => {
 
   function renderRedirect() {
     if (redirect) {
-      console.log(props.helicopter.model)
       return <Redirect to={{
         pathname: `/heliDetailPage/${props.helicopter._id}`,
-        state: { ...props }
+        state: {
+          helicopter: props.helicopter
+        }
       }}
       />
 

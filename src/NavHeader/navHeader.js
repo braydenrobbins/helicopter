@@ -4,25 +4,25 @@ import { Menu, Icon } from 'antd';
 
 const NavHeader = () => {
 
-
-  const handleClick = () => {
-    console.log('here');
-  }
-
-
   return (
     <Menu mode="horizontal" theme='dark'>
-      <Menu.Item onClick={handleClick} className='home'>
+      <Menu.Item className='home' key='home'>
         <Link to="/">
           <Icon type="home" />
           Home
         </Link>
       </Menu.Item>
-      <Menu.Item onClick={handleClick} className='addHeli'>
+      <Menu.Item className='addHeli'>
         <Link to="/addHeli">
           <Icon type="plus-circle" />
           Add Helicopter
           </Link>
+      </Menu.Item>
+      <Menu.Item className='userLogin'>
+        <Link to='/login'>
+          <Icon type="profile" />
+          Login
+        </Link>
       </Menu.Item>
     </Menu>
   )

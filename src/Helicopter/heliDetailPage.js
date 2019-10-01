@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { Input, Button, Form, notification } from 'antd';
 import Config from '../config/app.local.config';
 
-function HeliDetailPage(props) {
-  console.log(props);
-
-
+const HeliDetailPage = (props) => {
   const [heliName, setHeliName] = useState();
   const [heliDate, setHeliDate] = useState();
   const [_id] = useState();
