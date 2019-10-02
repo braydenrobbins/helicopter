@@ -1,42 +1,28 @@
 import React, { useState } from 'react';
 import { Card } from 'antd';
-import { Redirect } from 'react-router-dom';
-
-import HeliDetailPage from './heliDetailPage';
+import { Link } from 'react-router-dom';
 
 const { Meta } = Card;
 
 const HelicopterCard = (props) => {
-  const [redirect, setRedirect] = useState(false);
 
-  function setStateRedirect() {
-    setRedirect(true);
-  }
-
-  function renderRedirect() {
-    if (redirect) {
-      return <Redirect to={{
+  return (
+    <>
+      <Link to={{
         pathname: `/heliDetailPage/${props.helicopter._id}`,
         state: {
           helicopter: props.helicopter
         }
       }}
-      />
-
-    }
-  }
-
-  return (
-    <>
-      {renderRedirect()}
-      < Card
-        hoverable
-        className='helicopter-card'
-        cover={< img alt="example" src={props.helicopter.src} className='helicopter-Img' />}
-        onClick={setStateRedirect}
       >
-        <Meta title={props.helicopter.model} description={props.helicopter.date} />
-      </Card >
+        < Card
+          hoverable
+          className='helicopter-card'
+          cover={< img alt="example" src={props.helicopter.src} className='helicopter-Img' />}
+        >
+          <Meta title={props.helicopter.model} description={props.helicopter.date} />
+        </Card >
+      </Link>
     </>
   )
 }

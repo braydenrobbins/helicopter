@@ -10,16 +10,11 @@ function Helicopter(props) {
   const { Search } = Input;
   const [filtHeli, setFiltHeli] = useState([]);
   const [typeSelected, setTypeSelected] = useState('');
+  const [loopBreak, setLoopBreak] = useState(false);
 
   const allTypes = props.helicopters.map(h => h.type);
   const uniqueTypes = allTypes.filter((r, index) => allTypes.indexOf(r) === index);
   const makeItems = uniqueTypes.map(t => <Menu.Item key={t} onClick={() => handleSelected(t)}>{t}</Menu.Item>);
-
-  function handleSelected(type) {
-    setTypeSelected(type);
-  };
-
-  useEffect(() => console.log(typeSelected))
 
   function handleSearch(value) {
     const regex = new RegExp(value, 'i');
@@ -27,6 +22,12 @@ function Helicopter(props) {
     const filteredResults = isEmpty(typeSelected) ? searchResults : searchResults.filter((r) => r.type === typeSelected);
     setFiltHeli(filteredResults);
   }
+
+  function handleSelected(type) {
+    const helisOfOneType = props.helicopters.filter(h => h.type === type);
+    setTypeSelected(type);
+    setFiltHeli(helisOfOneType);
+  };
 
   return (
     <>
@@ -36,6 +37,7 @@ function Helicopter(props) {
             mode="inline"
             className='sider'
           >
+            <Menu.Item key={'All'} onClick={() => handleSelected('All')}>All</Menu.Item>
             {makeItems}
           </Menu>
         </Sider>
