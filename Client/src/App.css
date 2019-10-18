@@ -1,0 +1,160 @@
+.search {
+  /* margin: 1% 0 3% 0; */
+  margin: auto;
+  max-width: calc(80% + 10vmin);
+}
+
+.filterButton {
+  max-width: 20vmin;
+  margin: 1em auto;
+}
+
+.addHeli,
+.home {
+  float: left;
+  border-radius: 20px;
+}
+
+.userLogin {
+  float: right;
+  border-radius: 20px;
+}
+
+.content {
+  background-color: rgba(216, 216, 216);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.detailImg {
+  max-width: 25%;
+}
+
+.heliDescriptions {
+  display: flex;
+}
+
+.heli-title {
+  margin: 5% 0 0 25%;
+}
+
+.helicopter-Img {
+  height: 14vmin;
+  object-fit: cover;
+}
+
+.helicopter-card {
+  /* background: repeating-linear-gradient(45deg, rgb(0, 0, 0), transparent 350px); */
+  background: whitesmoke;
+}
+
+.loginCard {
+  width: 60%;
+  margin: 10vmin auto;
+  text-align: center;
+  padding: 1vmin;
+}
+
+.loginInput {
+  margin-left: 17%;
+}
+
+.loginButton {
+  margin: 0 0 15px 0;
+}
+
+.ant-card-meta-title {
+  color: darkslategray;
+}
+
+.ant-card-body {
+  padding: 24px;
+  zoom: 1;
+}
+
+.ant-card-bordered {
+  border: 1px solid darkgray;
+}
+
+.loginIcon {
+  margin: -100px 0 5px 0;
+  border: solid 1px gray;
+}
+
+.hamburger {
+  float: right;
+}
+
+.ant-card-cover img {
+  border-radius: 2px 2px 0 0;
+}
+
+.addHeliButton {
+  margin-bottom: 1vmax;
+}
+
+.big-title {
+  font-size: 3em;
+}
+
+.ant-layout {
+  text-align: center;
+  background-color: rgba(216, 216, 216, 0.25);
+}
+
+.ant-menu .header {
+  background-color: #002b49;
+}
+
+.ant-menu-item-selected .header {
+  font-size: 1.1em;
+  text-shadow: 1px 1px darkslategray;
+}
+
+.ant-form-item-control {
+  margin-right: 25vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* @media (max-width: 1275px) {
+  .ant-form-item-control {
+    margin: auto;
+  }
+} */
+
+@media (max-width: 1361px) {
+  .loginCard {
+    width: 90%;
+    margin: 10vmin auto;
+    text-align: center;
+    padding: 1vmin;
+  }
+
+  .detailImg {
+    max-height: 100px;
+  }
+
+  /* .ant-form-item-control {
+    margin-right: 1vmin;
+    margin-left: 1vmin;
+  } */
+
+  .helicopter-Img {
+    height: 100%;
+  }
+}
+
+/* rgba(216,216,216,.25) */
+/* #EB0029 */
