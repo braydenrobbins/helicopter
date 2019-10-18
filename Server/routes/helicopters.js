@@ -55,6 +55,7 @@ router.post(
       .not()
       .isEmpty()
   ],
+  auth,
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -99,6 +100,47 @@ router.post(
     }
   }
 );
-//PUT
 
+//PUT
+router.put("/:id", auth, async (req, res) => {
+  const {
+    type,
+    model,
+    capHeight,
+    crewMax,
+    crewMin,
+    fuseLength,
+    heliHeight,
+    rotorDiam,
+    maxSpeed,
+    src
+  } = req.body;
+
+  const helicopterFields = {
+    type: type,
+    model: model,
+    capHeight: capHeight,
+    crewMax: crewMax,
+    crewMin: crewMin,
+    fuseLength: fuseLength,
+    heliHeight: heliHeight,
+    rotorDiam: rotorDiam,
+    maxSpeed: maxSpeed,
+    src: src
+  };
+
+  try {
+    let helicopter = await Helicopter.findByIdAndUpdate(
+      req.params.id,
+      { $set: helicopterFields },
+      { new: true }
+    );
+    res.json(helicopter);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+module.exports = router;
 //DELETE
