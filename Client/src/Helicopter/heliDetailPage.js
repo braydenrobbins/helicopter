@@ -213,7 +213,11 @@ const HeliDetailPage = () => {
           </Row>
           <Row>
             <Col span={{ sm: 24, md: 12, lg: 8, xl: 8 }}>
-              <img src={heliUrl} className="detailImg" />
+              <img
+                src={heliUrl}
+                alt={`the current helicopter`}
+                className="detailImg"
+              />
             </Col>
             <Col span={{ sm: 24, md: 12, lg: 8, xl: 8 }}>
               <List

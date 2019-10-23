@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
       console.error("Couldn't get helicopters", err);
       res.status(500).send("Server Error");
     } else {
-      res.json(helicopters);
+      console.log(res.json(helicopters));
     }
   });
 });

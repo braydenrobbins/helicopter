@@ -22,6 +22,7 @@ function App() {
         if (!res.ok) {
           throw Error(res.statusText);
         }
+        console.log(res);
         setHelicopters(res.helicopters);
       })
       .catch(err => {
