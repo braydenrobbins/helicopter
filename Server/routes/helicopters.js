@@ -142,5 +142,15 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
 //DELETE
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    await Helicopter.findByIdAndRemove(req.params.id);
+    res.json({ msg: "Contact removed" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+module.exports = router;
