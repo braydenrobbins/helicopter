@@ -1,6 +1,5 @@
 const config = {
-  userServiceUrl: "https://localhost:5001/api/User/",
-  helicopterServiceUrl: "https://localhost:8080/api/helicopter/"
+  websiteServiceUrl: "https://localhost:5000/api/"
 };
 
 export default config;

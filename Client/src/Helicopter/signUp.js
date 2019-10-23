@@ -68,7 +68,7 @@ function SignUp() {
       username: username,
       password: password
     };
-    fetch(`${Config.userServiceUrl}CreateUser`, {
+    fetch(`${Config.websiteServiceUrl}/User/CreateUser`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=UTF-8" },
       accepts: "application/json",

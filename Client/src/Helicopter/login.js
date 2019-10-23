@@ -1,7 +1,6 @@
-import React, { useState, useLocation } from "react";
+import React, { useState } from "react";
 import { Form, Input, notification, Card, Avatar, Button } from "antd";
-import { Link, withRouter } from "react-router-dom";
-import { isEmpty } from "lodash";
+import { Link } from "react-router-dom";
 import Config from "../config/app.local.config";
 
 function Login(props) {
@@ -14,19 +13,18 @@ function Login(props) {
     setPassword("");
   }
 
-  function refreshPage() {
-    window.location.reload();
-  }
-
   async function authenticateUser() {
     const user = {
       username: username,
       password: password
     };
-    const response = await fetch(`${Config.userServiceUrl}Authentication`, {
-      method: "POST",
-      body: JSON.stringify(user)
-    })
+    const response = await fetch(
+      `${Config.websiteServiceUrl}/User/Authentication`,
+      {
+        method: "POST",
+        body: JSON.stringify(user)
+      }
+    )
       .then(res => {
         console.log(res);
         setToken(res.token);

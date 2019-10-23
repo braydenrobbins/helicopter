@@ -31,7 +31,7 @@ const HeliDetailPage = () => {
   };
 
   function deleteHeli() {
-    fetch(`${Config.helicopterServiceUrl}${heli._id}`, {
+    fetch(`${Config.websiteServiceUrl}/helicopters/${heli._id}`, {
       method: `DELETE`
     })
       .then(res => {
@@ -61,7 +61,7 @@ const HeliDetailPage = () => {
       maxSpeed: maxSpeed
     };
 
-    fetch(`${Config.helicopterServiceUrl}`, {
+    fetch(`${Config.websiteServiceUrl}`, {
       method: `PUT`,
       body: JSON.stringify(heli)
     })
