@@ -203,73 +203,73 @@ const HeliDetailPage = () => {
           </Form>
         </>
       ) : (
-        <>
-          <Row>
-            <Col span={24}>
-              <h1 className="big-title">
-                {type} {heliModel}
-              </h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={{ sm: 24, md: 12, lg: 8, xl: 8 }}>
-              <img
-                src={heliUrl}
-                alt={`the current helicopter`}
-                className="detailImg"
-              />
-            </Col>
-            <Col span={{ sm: 24, md: 12, lg: 8, xl: 8 }}>
-              <List
-                bordered
-                styles={{
-                  fontSize: "50px"
-                }}
-                itemLayout="horizontal"
-                grid={{
-                  gutter: 40,
-                  xs: 1,
-                  sm: 2,
-                  md: 3,
-                  lg: 4,
-                  xl: 4
-                }}
-              >
-                <List.Item>
-                  <p>{`Type: ${type}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Model: ${heliModel}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Capacity Weight: ${capWeight}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Crew Maximum: ${crewMax}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Crew Minimum: ${crewMin}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Fuselage Length: ${fuseLength}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Helicopter Height: ${heliHeight}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Rotor Diameter: ${rotorDiam}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Engine Type: ${engineType}`}</p>
-                </List.Item>
-                <List.Item>
-                  <p>{`Max Speed: ${maxSpeed}`}</p>
-                </List.Item>
-              </List>
-            </Col>
-          </Row>
-        </>
-      )}
+          <>
+            <Row>
+              <Col span={24}>
+                <h1 className="big-title">
+                  {type} {heliModel}
+                </h1>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <img
+                  src={heliUrl}
+                  alt={`the current helicopter`}
+                  className="detailImg"
+                />
+              </Col>
+              <Col span={12}>
+                <List
+                  bordered
+                  styles={{
+                    fontSize: "50px"
+                  }}
+                  itemLayout="horizontal"
+                  grid={{
+                    gutter: 40,
+                    xs: 1,
+                    sm: 2,
+                    md: 3,
+                    lg: 4,
+                    xl: 4
+                  }}
+                >
+                  <List.Item>
+                    <p>{`Type: ${type}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Model: ${heliModel}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Capacity Weight: ${capWeight}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Crew Maximum: ${crewMax}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Crew Minimum: ${crewMin}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Fuselage Length: ${fuseLength}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Helicopter Height: ${heliHeight}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Rotor Diameter: ${rotorDiam}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Engine Type: ${engineType}`}</p>
+                  </List.Item>
+                  <List.Item>
+                    <p>{`Max Speed: ${maxSpeed}`}</p>
+                  </List.Item>
+                </List>
+              </Col>
+            </Row>
+          </>
+        )}
     </>
   );
 };

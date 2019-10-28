@@ -14,20 +14,14 @@ function Login(props) {
   }
 
   async function authenticateUser() {
-    const user = {
-      username: username,
-      password: password
-    };
-    const response = await fetch(
-      `${Config.websiteServiceUrl}/User/Authentication`,
-      {
-        method: "POST",
-        body: JSON.stringify(user)
-      }
-    )
+    const user = { username, password };
+    fetch(`${Config.websiteServiceUrl}auth`, { method: "POST", body: JSON.stringify(user) })
       .then(res => {
-        console.log(res);
-        setToken(res.token);
+        return res.json()
+      })
+      .then(t => {
+        console.log(t);
+        setToken(t);
       })
       .then(() => {
         localStorage.setItem("token", token);
@@ -42,12 +36,6 @@ function Login(props) {
         });
         clearFields();
       });
-    const userData = await response.json();
-    if (!response.ok) throw new Error(response.status);
-    console.log(response);
-    setToken(userData.token);
-    localStorage.setItem("Token", token);
-    localStorage.setItem("username", userData.username);
   }
 
   return (
@@ -80,7 +68,6 @@ function Login(props) {
               onChange={e => setPassword(e.target.value)}
             />
           </Form.Item>
-          {/*<Button onClick={(e) => authenticateUser()}/>*/}
           <Button
             type="primary"
             htmlType="submit"

@@ -17,18 +17,14 @@ function App() {
   const { Content, Header } = Layout;
   const [helicopters, setHelicopters] = useState([]);
   useEffect(() => {
-    fetch(`${Config.websiteServiceUrl}helicopters`, { method: `GET` })
+    fetch(`${Config.websiteServiceUrl}helicopters`)
       .then(res => {
-        if (!res.ok) {
-          throw Error(res.statusText);
-        }
-        console.log(res);
-        setHelicopters(res.helicopters);
+        return res.json();
       })
-      .catch(err => {
-        handleError(err);
-      });
-  }, [helicopters]);
+      .then(h => {
+        setHelicopters(h);
+      })
+  }, []);
 
   const [users] = useState([
     {

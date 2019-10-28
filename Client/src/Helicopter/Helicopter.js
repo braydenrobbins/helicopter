@@ -47,16 +47,16 @@ function Helicopter(props) {
       typeSelected === "All"
         ? searchResults
         : searchResults.filter(
-            r =>
-              r.type === typeSelected &&
-              r.capWeight >= capWeight &&
-              r.crewMax <= crewMax &&
-              r.crewMin >= crewMin &&
-              r.fuseLength >= fuseLength &&
-              r.heliHeight >= heliHeight &&
-              r.rotorDiam >= rotorDiam &&
-              r.maxSpeed >= maxSpeed
-          );
+          r =>
+            r.type === typeSelected &&
+            r.capWeight >= capWeight &&
+            r.crewMax <= crewMax &&
+            r.crewMin >= crewMin &&
+            r.fuseLength >= fuseLength &&
+            r.heliHeight >= heliHeight &&
+            r.rotorDiam >= rotorDiam &&
+            r.maxSpeed >= maxSpeed
+        );
     setFiltHeli(filteredResults);
   }
 
@@ -70,20 +70,20 @@ function Helicopter(props) {
     const sliderResults = props.helicopters.filter(h =>
       typeSelected === "All"
         ? parseInt(h.capWeight) >= capWeight &&
-          parseInt(h.crewMax) <= crewMax &&
-          parseInt(h.crewMin) >= crewMin &&
-          parseInt(h.fuseLength) >= fuseLength &&
-          parseInt(h.heliHeight) >= heliHeight &&
-          parseInt(h.rotorDiam) >= rotorDiam &&
-          parseInt(h.maxSpeed) >= maxSpeed
+        parseInt(h.crewMax) <= crewMax &&
+        parseInt(h.crewMin) >= crewMin &&
+        parseInt(h.fuseLength) >= fuseLength &&
+        parseInt(h.heliHeight) >= heliHeight &&
+        parseInt(h.rotorDiam) >= rotorDiam &&
+        parseInt(h.maxSpeed) >= maxSpeed
         : h.type === typeSelected &&
-          parseInt(h.capWeight) >= capWeight &&
-          parseInt(h.crewMax) <= crewMax &&
-          parseInt(h.crewMin) >= crewMin &&
-          parseInt(h.fuseLength) >= fuseLength &&
-          parseInt(h.heliHeight) >= heliHeight &&
-          parseInt(h.rotorDiam) >= rotorDiam &&
-          parseInt(h.maxSpeed) >= maxSpeed
+        parseInt(h.capWeight) >= capWeight &&
+        parseInt(h.crewMax) <= crewMax &&
+        parseInt(h.crewMin) >= crewMin &&
+        parseInt(h.fuseLength) >= fuseLength &&
+        parseInt(h.heliHeight) >= heliHeight &&
+        parseInt(h.rotorDiam) >= rotorDiam &&
+        parseInt(h.maxSpeed) >= maxSpeed
     );
     setFiltHeli(sliderResults);
   }
@@ -108,7 +108,7 @@ function Helicopter(props) {
           typeSelected === "All" || isEmpty(typeSelected)
             ? ""
             : ` ${typeSelected}`
-        } Helicopters`}
+          } Helicopters`}
         onChange={e => handleSearch(e.target.value)}
         className="search"
         enterButton

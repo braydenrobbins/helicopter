@@ -52,7 +52,7 @@ function AddHeli(props) {
       maxSpeed: maxSpeed
     };
 
-    fetch(`${Config.websiteServiceUrl}Helicopter/`, {
+    fetch(`${Config.websiteServiceUrl}helicopters`, {
       method: `POST`,
       headers: {
         "Content-Type": "application/json"
