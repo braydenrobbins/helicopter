@@ -20,7 +20,8 @@ function Helicopter(props) {
   const radioStyle = {
     display: "block",
     height: "30px",
-    lineHeight: "30px"
+    lineHeight: "30px",
+    color: 'white'
   };
 
   const allTypes = props.helicopters.map(h => h.type);
